@@ -11,8 +11,9 @@ int main() {
   for (int &x : a) {
     cin >> x;
   }
-  // them phan tu vao set
+  // Set khong the luu 2 gia tri giong nhau, cac phan tu duoc sap xep tang dan
   set<int> se;
+  // them phan tu vao set
   for (int x : a) {
     se.insert(x);
   }
@@ -36,15 +37,43 @@ int main() {
   // auto it = se.find(7);
   auto it = se.find(10);
   if (it != se.end()) {
-    cout << "Yes, tim thay";
+    cout << "Yes, tim thay\n";
   } else {
-    cout << "No,khong tim thay";
+    cout << "\nNo,khong tim thay";
   }
   // ham count(), dem so luong phan tu xuat hien trong set, chi tra ve 0 hoac 1
   // =>dung de tim kiem thay cho ham find()
   if (se.count(10) == 0) {
-    cout << "No,khong tim thay";
+    cout << "\nNo,khong tim thay\n";
   } else if (se.count(10) == 1) {
     cout << "Yes, tim thay";
   }
+
+  // ham erase() trong set xoa phan tu bang GIA TRI
+  cout << "\ntruoc khi xoa:\n";
+  for (int x : se) {
+    cout << x << " ";
+  }
+  se.erase(5);
+  // nen kiem tra trong set co gia tri do khong roi moi xoa => neu khong Error
+  if (se.find(6) != se.end()) {
+    se.erase(6);
+  }
+  cout << "\nsau khi xoa:";
+  for (int x : se) {
+    cout << x << " ";
+  }
+  // ham erase() trong set xoa phan tu bang Iterator
+  auto it2 = se.find(7);
+  if (it2 != se.end()) {
+
+    se.erase(it2);
+  }
+
+  // Iterator trong Set chi co the dich chuyen bang ++ hoac --
+  // Kieu du lieu Set dang TREE(Cay) khong +=2,3,4,... duoc
+  auto it3 = se.find(4);
+  cout << endl << *it << endl;
+  --it;
+  cout << *it << endl;
 }
