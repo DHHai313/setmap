@@ -7,9 +7,6 @@ int main() {
   while (cin >> s) {
     se.insert(s);
     dem++;
-    if (dem == 5) {
-      break;
-    }
   }
   cout << se.size() << endl;
   cout << *se.begin() << " " << *se.rbegin();
